@@ -21,7 +21,7 @@ public class EmployDataAccessService {
 
 	private static int employeeCount = 3;
 	
-	public List<Employ> findAllEmployee(){
+	public List<Employ> findEmployee(){
 		return employee;
 	}
 	
@@ -33,7 +33,7 @@ public class EmployDataAccessService {
 		return employee;
 	}
 	
-	public Employ findOne(int employeeId) {
+	public Employ findEmploy(int employeeId) {
 		for(Employ employ: employee) {
 			if(employeeId == employ.getEmployeeId()) {
 				return employ;
