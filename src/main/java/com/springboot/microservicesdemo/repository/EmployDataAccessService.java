@@ -11,7 +11,7 @@ import com.springboot.microservicesdemo.model.Employ;
 @Component
 public class EmployDataAccessService {
 
-	private static List<Employ> employee = new ArrayList<>();
+	public static List<Employ> employee = new ArrayList<>();
 	
 	static{
 		employee.add(new Employ(1,"hello",new Date()));
@@ -19,18 +19,18 @@ public class EmployDataAccessService {
 		employee.add(new Employ(3,"java",new Date()));
 	}
 
-	private static int employeeCount = 3;
+	private static Integer employeeCount = 3;
 	
 	public List<Employ> findEmployee(){
 		return employee;
 	}
 	
-	public List<Employ> addEmployee(Employ employ) {
+	public Employ addEmploy(Employ employ) {
 		if(employ.getEmployeeId() == null) {
 			employ.setEmployeeId(++employeeCount);
 		}
 		employee.add(employ);
-		return employee;
+		return employ;
 	}
 	
 	public Employ findEmploy(int employeeId) {

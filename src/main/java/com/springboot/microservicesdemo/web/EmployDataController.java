@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.microservicesdemo.model.Employ;
@@ -24,6 +26,12 @@ public class EmployDataController {
 	@GetMapping("/retrieveemploybyid/{employId}")
 	public Employ retrieveEmployById(@PathVariable int employId) {
 		return employDataService.findEmploy(employId);
+	}
+	
+	@PostMapping("/addemploytotherepository")
+	public Employ addemploytotherepository(@RequestBody Employ employ) {
+		Employ savedEmploy = employDataService.addEmploy(employ);
+		return savedEmploy;
 	}
 	
 }
