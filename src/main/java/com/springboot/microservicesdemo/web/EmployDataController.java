@@ -28,6 +28,13 @@ public class EmployDataController {
 	
 	@GetMapping("/retrieveemploybyid/{employId}")
 	public Employ retrieveEmployById(@PathVariable int employId) {
+		
+		Employ employ = employDataService.findEmploy(employId);
+		
+		if (employ == null){			
+			throw new EmployNotFoundException("Employ with "+employId+"not found");
+		}
+		
 		return employDataService.findEmploy(employId);
 	}
 	
