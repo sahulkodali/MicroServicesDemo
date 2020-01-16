@@ -32,7 +32,7 @@ public class EmployDataController {
 		Employ employ = employDataService.findEmploy(employId);
 		
 		if (employ == null){			
-			throw new EmployNotFoundException("Employ with "+employId+"not found");
+			throw new EmployNotFoundException("Employ with "+employId+" not found");
 		}
 		
 		return employDataService.findEmploy(employId);
